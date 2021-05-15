@@ -39,6 +39,8 @@ import { useStateValue } from "./StateProvider";
 //8:33:40 contextAPI STARTED, what are {children} explained
 //8:43:45 wrap the app PRESENT in index.js into DATALAYER/STATEPROVIDER
 //8:49:40 checking the login, reducer,homepage flow!!!
+// 8:59:00 setting input chat field... important!
+// 9:07:00 button is disappeared from the view, but it has to be there, its a trick so when we hit send it actually button clicked!
 
 function App() {
   // const [user, setUser] = useState(null);

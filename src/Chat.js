@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import db from "./firebase";
 import Message from "./Message";
+import ChatInput from "./ChatInput";
 
 function Chat() {
   const { roomId } = useParams();
@@ -33,7 +34,7 @@ function Chat() {
   }, [roomId]);
 
   console.log("channel details:", channelDetails);
-
+  console.log("channel Id:", roomId);
   console.log("Channel Messages >>>>>", channelMessages);
 
   return (
@@ -65,6 +66,7 @@ function Chat() {
           />
         ))}
       </div>
+      <ChatInput channelName={channelDetails?.name} channelId={roomId} />
     </div>
   );
 }
