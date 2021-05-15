@@ -14,10 +14,12 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
 import db from "./firebase"; // we can call it anything we want, since it is the default export!
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
   const [channels, setChannels] = useState([]); // at start we assume that channels is empty, hence []
 
+  const [{ user }] = useStateValue();
   useEffect(() => {
     // run this when the sidebar loads once (thats why empty brackets)!!!! for the first time
     // snapshot takes real time (at that time) image of the db, every crud makes a new snapshot
@@ -36,10 +38,10 @@ function Sidebar() {
       <div className="sidebar__header">
         {/* keeps profile and important data */}
         <div className="sidebar__info">
-          <h2>Abhiram's Slack!</h2>
+          <h2>Abhi's Slack!</h2>
           <h3>
             <FiberManualRecordIcon />
-            Abhiram Satpute
+            {user?.displayName}
           </h3>
         </div>
         <CreateIcon />

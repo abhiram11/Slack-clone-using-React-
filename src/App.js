@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import Chat from "./Chat";
 import { useState } from "react";
 import Login from "./Login";
+import { useStateValue } from "./StateProvider";
 
 // 6:31:48 MaterialUI icons are FONTS
 // 6:34:30 nested CSS children!!
@@ -35,8 +36,13 @@ import Login from "./Login";
 // 8:23:00 CARD LOOKING login page !!!!!!!!!!! using box shadow, DISPLAY:GRID IS VERY POWERFUL
 // 8:30:32 We get an authenticated token from Google after Signin! we can use it for Google APIs !!
 
+//8:33:40 contextAPI STARTED, what are {children} explained
+//8:43:45 wrap the app PRESENT in index.js into DATALAYER/STATEPROVIDER
+//8:49:40 checking the login, reducer,homepage flow!!!
+
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const [{ user }, dispatch] = useStateValue(); // we could do [state,dispatch] and then use state.user or something, but we destructured it!
 
   return (
     // BEM naming convention
@@ -49,7 +55,6 @@ function App() {
             <Header />
             <div className="app__body">
               <Sidebar />
-
               <Switch>
                 <Route path="/room/:roomId">
                   {" "}
