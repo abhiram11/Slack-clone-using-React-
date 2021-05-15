@@ -6,12 +6,13 @@ import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import { useEffect } from "react";
 import { useState } from "react";
 import db from "./firebase";
+import Message from "./Message";
 
 function Chat() {
   const { roomId } = useParams();
 
   const [channelDetails, setChannelDetails] = useState(null);
-  const [channelMessages, setChannelMessages] = useState(null);
+  const [channelMessages, setChannelMessages] = useState([]);
 
   //runs when component loads or changes
   useEffect(() => {
@@ -51,6 +52,18 @@ function Chat() {
             <InfoOutlinedIcon /> Details
           </p>
         </div>
+      </div>
+      {/* chat header is over above */}
+      <div className="chat__messages">
+        {/* <Message with some props.... /> */}
+        {channelMessages.map(({ message, timestamp, username, userimage }) => (
+          <Message
+            message={message}
+            timestamp={timestamp}
+            username={username}
+            userImage={userimage}
+          />
+        ))}
       </div>
     </div>
   );

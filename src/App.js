@@ -23,6 +23,9 @@ import Chat from "./Chat";
 // 7:43:30 room id pushed into url, so then info can be fetched using it
 // 7:45:50 decoupled code : sidebar and addchannel !
 // 7:59:00 we use .orderBy which is a firestory query!!
+// 8:02:40 destructure the output of .map by directly calling the variable names
+// 8:04:30 channelMessage?.name use of ? is called optional chaining, came in es6 or 7, came from swift
+// similar to instant try catch! used in async, other tasks
 
 function App() {
   return (
