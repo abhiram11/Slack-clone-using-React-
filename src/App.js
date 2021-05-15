@@ -18,6 +18,11 @@ import Chat from "./Chat";
 // 7:06:50 useEffect (()=>{}, []) last sq brackets we call them dependencies
 // 7:21:00 starting with REACT ROUTER, CHUCK ALL THE APP INSIDE <ROUTINE>
 // 7:25:00 intro to useParams from ReactRouter
+// 7:35:18 make the channel name lowercase that comes from dB using CSS's text-transform: lowercase
+// 7:41:28 useHistory() whenever url is changed!
+// 7:43:30 room id pushed into url, so then info can be fetched using it
+// 7:45:50 decoupled code : sidebar and addchannel !
+// 7:59:00 we use .orderBy which is a firestory query!!
 
 function App() {
   return (
@@ -37,12 +42,13 @@ function App() {
           <Switch>
             <Route path="/room/:roomId">
               {" "}
+              {/* <h1>Welcome!!</h1> */}
               {/*The syntax is important here!! */}
               {/* <h1>CHAT SCREEN</h1> */}
               <Chat />
             </Route>
             <Route path="/">
-              {/* <h1>WELCOME to home screen</h1> */}
+              <h1>WELCOME to home screen</h1>
               {/* <Chat /> */}
             </Route>
           </Switch>
