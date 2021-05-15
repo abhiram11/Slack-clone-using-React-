@@ -3,6 +3,8 @@ import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
+import { useState } from "react";
+import Login from "./Login";
 
 // 6:31:48 MaterialUI icons are FONTS
 // 6:34:30 nested CSS children!!
@@ -26,36 +28,44 @@ import Chat from "./Chat";
 // 8:02:40 destructure the output of .map by directly calling the variable names
 // 8:04:30 channelMessage?.name use of ? is called optional chaining, came in es6 or 7, came from swift
 // similar to instant try catch! used in async, other tasks
+// 8:15:00 LLOOLLLL REACT + FIREBASE is eeeeverything vs NODE EXPRESS ETC
+// learn about firebase rules tho
+// 8:21:00 new style for BUTTONS
+
+// 8:23:00 CARD LOOKING login page !!!!!!!!!!! using box shadow, DISPLAY:GRID IS VERY POWERFUL
+// 8:30:32 We get an authenticated token from Google after Signin! we can use it for Google APIs !!
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     // BEM naming convention
     <div className="app">
       <Router>
-        {/* <h1>Starting a slack clone!! 🚀</h1> */}
-        {/* <br /> */}
+        {!user ? (
+          <Login></Login>
+        ) : (
+          <>
+            <Header />
+            <div className="app__body">
+              <Sidebar />
 
-        {/* Header = search bar at top */}
-        {/* Sidebar = profile, channels, drafts, saved itmes, etc...*/}
-        {/* React Router at end for chat screen */}
-        <Header />
-        <div className="app__body">
-          <Sidebar />
-
-          <Switch>
-            <Route path="/room/:roomId">
-              {" "}
-              {/* <h1>Welcome!!</h1> */}
-              {/*The syntax is important here!! */}
-              {/* <h1>CHAT SCREEN</h1> */}
-              <Chat />
-            </Route>
-            <Route path="/">
-              <h1>WELCOME to home screen</h1>
-              {/* <Chat /> */}
-            </Route>
-          </Switch>
-        </div>
+              <Switch>
+                <Route path="/room/:roomId">
+                  {" "}
+                  {/* <h1>Welcome!!</h1> */}
+                  {/*The syntax is important here!! */}
+                  {/* <h1>CHAT SCREEN</h1> */}
+                  <Chat />
+                </Route>
+                <Route path="/">
+                  <h1>WELCOME to home screen</h1>
+                  {/* <Chat /> */}
+                </Route>
+              </Switch>
+            </div>
+          </>
+        )}
       </Router>
     </div>
   );
