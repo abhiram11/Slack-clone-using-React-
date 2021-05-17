@@ -59,7 +59,12 @@ function Sidebar() {
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
       <hr />
 
-      <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
+      <SidebarOption
+        Icon={AddIcon}
+        addChannelOption
+        totalChannels={channels.length}
+        title="Add Channel"
+      />
 
       {/* Connect to dB and list all the channels, mapping thru dB and showing here */}
       {/* using that same sidebarOption  */}

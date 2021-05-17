@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import db from "./firebase";
 import "./SidebarOption.css";
 
-function SidebarOption({ Icon, title, id, addChannelOption }) {
+function SidebarOption({ Icon, title, id, addChannelOption, totalChannels }) {
   const history = useHistory();
 
   const selectChannel = () => {
@@ -15,12 +15,21 @@ function SidebarOption({ Icon, title, id, addChannelOption }) {
   };
 
   const addChannel = () => {
-    const channelName = prompt("Please enter the channel Name");
+    // console.log("Total Channels:", totalChannels);
+    // console.log("Type of channels:", typeof totalChannels);
 
-    if (channelName) {
-      db.collection("channels").add({
-        name: channelName,
-      });
+    if (totalChannels >= 5) {
+      alert(
+        "Maximum of 5 channels can be added. Contact Abhiram to delete a channel first."
+      );
+    } else {
+      const channelName = prompt("Please enter the channel Name");
+
+      if (channelName) {
+        db.collection("channels").add({
+          name: channelName,
+        });
+      }
     }
   };
 

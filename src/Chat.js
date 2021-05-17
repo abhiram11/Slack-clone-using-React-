@@ -33,9 +33,9 @@ function Chat() {
       );
   }, [roomId]);
 
-  console.log("channel details:", channelDetails);
-  console.log("channel Id:", roomId);
-  console.log("Channel Messages >>>>>", channelMessages);
+  // console.log("channel details:", channelDetails);
+  // console.log("channel Id:", roomId);
+  // console.log("Channel Messages >>>>>", channelMessages);
 
   return (
     <div className="chat">
@@ -57,12 +57,12 @@ function Chat() {
       {/* chat header is over above */}
       <div className="chat__messages">
         {/* <Message with some props.... /> */}
-        {channelMessages.map(({ message, timestamp, username, userimage }) => (
+        {channelMessages.map(({ message, timestamp, username, userImage }) => (
           <Message
             message={message}
             timestamp={timestamp}
             username={username}
-            userImage={userimage}
+            userImage={userImage}
           />
         ))}
       </div>

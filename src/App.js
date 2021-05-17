@@ -66,7 +66,9 @@ function App() {
                   <Chat />
                 </Route>
                 <Route path="/">
-                  <h1>WELCOME to home screen</h1>
+                  <h1 className="defaultPage">
+                    WELCOME to home screen. Select a room to start chatting!
+                  </h1>
                   {/* <Chat /> */}
                 </Route>
               </Switch>
