@@ -46,6 +46,7 @@ function App() {
   // const [user, setUser] = useState(null);
   const [{ user }, dispatch] = useStateValue(); // we could do [state,dispatch] and then use state.user or something, but we destructured it!
 
+  console.log("User:", user);
   return (
     // BEM naming convention
     <div className="app">
@@ -67,7 +68,8 @@ function App() {
                 </Route>
                 <Route path="/">
                   <h1 className="defaultPage">
-                    WELCOME to home screen. Select a room to start chatting!
+                    WELCOME to Abhi's Slack!
+                    <br /> Select a room to start chatting in real-time!
                   </h1>
                   {/* <Chat /> */}
                 </Route>

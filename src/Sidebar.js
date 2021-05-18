@@ -44,7 +44,7 @@ function Sidebar() {
             {user?.displayName}
           </h3>
         </div>
-        <CreateIcon />
+        <CreateIcon titleAccess="Coming Soon!" />
       </div>
       <SidebarOption Icon={InsertCommentIcon} title="Threads" />
       {/* <SidebarOption title="GamingChat" /> */}

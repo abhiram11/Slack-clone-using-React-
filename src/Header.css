@@ -39,6 +39,7 @@
   min-width: 35vw;
   text-align: center;
   background-color: transparent;
+  color: white;
   border: none;
 }
 
@@ -46,6 +47,7 @@
   flex: 0.3;
   display: flex;
   align-items: flex-end;
+  margin-right: 20px;
   /* border: 1px solid; */
 }
 

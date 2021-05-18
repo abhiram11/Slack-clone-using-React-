@@ -9,8 +9,10 @@ function SidebarOption({ Icon, title, id, addChannelOption, totalChannels }) {
   const selectChannel = () => {
     if (id) {
       history.push(`/room/${id}`);
+    } else if ("Channels".match(title)) {
+      // continue;
     } else {
-      history.push(title);
+      alert("Coming Soon!");
     }
   };
 

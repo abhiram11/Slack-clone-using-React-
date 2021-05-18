@@ -5,9 +5,19 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SearchIcon from "@material-ui/icons/Search";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
+import { auth, provider } from "./firebase";
 
 function Header() {
-  const [{ user }] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
+
+  const logoutUser = () => (
+    dispatch({
+      type: actionTypes.SET_USER,
+      user: null,
+    }),
+    auth.signOut()
+  );
 
   return (
     <div className="header">
@@ -25,10 +35,11 @@ function Header() {
         {/* <h1>center of header</h1> */}
         {/* search, input */}
         <SearchIcon />
-        <input placeholder="Search in Abhi's Slack Dome" />
+        <input placeholder="Search Abhi's Slack" title="Coming Soon!" />
       </div>
       <div className="header__right">
         <HelpOutlineIcon />
+        <button onClick={logoutUser}>Logout</button>
         {/* <h1>right side of header</h1> */}
       </div>
     </div>
